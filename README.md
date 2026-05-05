@@ -100,5 +100,5 @@ E-posta: iletisim@example.com
 ---
 
 ## 📄 Lisans
-Bu proje eğitim amaçlıdır. Ticari kullanım için uygun değildir.
+!(assets/LICENSE)
 
