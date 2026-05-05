@@ -100,5 +100,5 @@ E-posta: iletisim@example.com
 ---
 
 ## 📄 Lisans
-!(assets/LICENSE)
+![](assets/LICENSE)
 
