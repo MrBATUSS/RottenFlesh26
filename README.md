@@ -89,16 +89,8 @@ pio upload
 
 ---
 
-## 🧭 Gelecek Geliştirmeler
-- Makine öğrenmesi tabanlı analiz
-- Daha hassas gaz sensörleri
-- Mobil uygulama entegrasyonu
-- Mini taşınabilir cihaz tasarımı
-
----
-
 ## 👨‍💻 Geliştirici
-Barbaros Anadolu Lisesi Öğrencileri
+Barbaros Anadolu Lisesi Öğrencileri Harezmi Projesi Ekibi (Bakınız CONTRIBUTORS)
 
 ---
 
