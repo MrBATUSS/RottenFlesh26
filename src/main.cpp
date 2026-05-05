@@ -1,6 +1,6 @@
-//KUTUPHANELER
+#include <Arduino.h>
 #include <Wire.h>
-#include <LiquidCrystal_I2C.h>
+#include <lib/LiquidCrystal_I2C-1.1.2/LiquidCrystal_I2C.h>
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
@@ -18,7 +18,7 @@ int mq4_value;
 bool first_boot = true;
 
 void setup() {
-  Serial.begin(9600);                            //BILGISAYAR ILE ILETISIMI **9600 HIZINDA** BASLATIYORUZ BURDAN GELEN VERILERI OKUYCAZ
+  Serial.begin(9600);
   pinMode(mq4_pin, INPUT);
   pinMode(mq135_pin, INPUT);
   pinMode(mq136_pin, INPUT);
@@ -30,18 +30,18 @@ void setup() {
 }
 
 void mq136() {
-  mq136_value = analogRead(mq136_pin);                  //MQ-136 NIN DONDURDUGU DEGERI DEGISKENE VERIYORUZ
-  Serial.println("--MQ136--: " + String(mq136_value));  //VERIYI EKRANA YAZDIRIYORUZ
+  mq136_value = analogRead(mq136_pin);                  
+  Serial.println("--MQ136--: " + String(mq136_value));  
 }
 
 void mq135() {
-  mq135_value = analogRead(mq135_pin);               //MQ-135 IN DONDURDUGU DEGERI DEGISKENE VERIYORUZ
-  Serial.println("MQ-135: " + String(mq135_value));  //VERIYI EKRANA YAZDIRIYORUZ
+  mq135_value = analogRead(mq135_pin);              
+  Serial.println("MQ-135: " + String(mq135_value));  
 }
 
 void mq4() {
-  mq4_value = analogRead(mq4_pin);               //MQ-4 IN DONDURDUGU DEGERI DEGISKENE VERIYORUZ
-  Serial.println("MQ-4: " + String(mq4_value));  //VERIYI EKRANA YAZDIRIYORUZ
+  mq4_value = analogRead(mq4_pin);        
+  Serial.println("MQ-4: " + String(mq4_value));
 }
 
 void screen() {
@@ -77,7 +77,6 @@ void loop() {
   digitalWrite(2,HIGH);
 
   delay(1000);
-  //mq4();
   mq135();
   mq136();
   screen();
