@@ -1,35 +1,112 @@
-#🥩 RottenFlesh26 - Akıllı Gıda Analiz Sistemi
-RottenFlesh26, özellikle protein bazlı gıdaların (et, tavuk, balık vb.) tazelik durumunu tespit ederek gıda zehirlenmelerinin önüne geçmeyi amaçlayan bir analiz cihazıdır.
+# RottenFlesh26 – Akıllı Gıda Analiz Sistemi
 
-Yemeğin tadı ve kokusu baharatlarla gizlenmeye çalışılsa bile, sensörler yiyeceklerden çıkan gazı algılayıp kendi içerisindeki algoritma ile Taze, Riskli ve Sakıncalı şeklinde kullanıcıya anlık veri sunar.
+![Status](https://img.shields.io/badge/status-prototype-orange)
+![Platform](https://img.shields.io/badge/platform-PlatformIO-blue)
+![Hardware](https://img.shields.io/badge/hardware-Arduino-green)
+![Sensors](https://img.shields.io/badge/sensors-MQ135%20%2F%20MQ136-red)
 
-🛠️ Teknik Özellikler
-Sensörler: MQ-135 (Hava Kalitesi) ve MQ-136 (Kükürt Takibi).
+---
 
-Akıllı Kalibrasyon: Manuel buton ile ortamın havasına göre kendini sıfırlama.
+## 📌 Proje Özeti
+RottenFlesh26, protein bazlı gıdaların (et, tavuk, balık vb.) tazelik durumunu gaz sensörleri ile analiz eden bir prototip sistemdir. Sistem, gıdalardan yayılan uçucu bileşenleri ölçerek kullanıcıya **Taze / Riskli / Sakıncalı** sınıflandırması sunar.
 
-Yüzdesel Algoritma: Temiz havaya göre %30 ve %45 sapma payları ile karar verme.
+Bu proje eğitim amaçlıdır ve sensör tabanlı çevresel analiz mantığını göstermek için geliştirilmiştir.
 
-Geri Bildirim: 16x2 LCD Ekran ve Kademeli Buzzer Alarmı.
+---
 
-⚠️ ÖNEMLİ UYARILAR (DİKKATLE OKUYUNUZ)
-🔴 NOT: PROTOTİP AŞAMASI
-RottenFlesh26 henüz demo aşamasındadır. Cihazın sunduğu veriler laboratuvar ortamında %100 doğrulanmış orijinal kaliteyi yansıtmaz. Sadece bilgilendirme ve eğitim amaçlı bir prototiptir.
+## 🎯 Amaç
+- Gıda güvenliği konusunda farkındalık oluşturmak
+- Gaz sensörleri ile çevresel veri analizi yapmak
+- Basit eşik tabanlı karar algoritması geliştirmek
+- Gömülü sistem mantığını öğrenmek
 
-❗ ÖNEMLİ: YASAL SORUMLULUK REDDİ
-RottenFlesh26 teknolojik bir ölçüm cihazıdır ancak sensör hassasiyeti, ortam nemi veya sıcaklığına bağlı olarak hata yapma payı bulunmaktadır. Ürünü kullanırken oluşabilecek herhangi bir sağlık probleminden, zehirlenmeden veya maddi/manevi zarardan Barbaros Anadolu Lisesi öğrencileri SORUMLU DEĞİLDİR.
+---
 
-🚀 Nasıl Kullanılır?
-Isınma: Cihazı açın ve sensörlerin stabil hale gelmesi için ısınma süresinin bitmesini bekleyin.
+## 🧠 Çalışma Prensibi
 
-Sıfırlama: Cihazı temiz bir ortamdayken Kalibrasyon Butonuna basın.
+```text
+Ortam Havası → Kalibrasyon → Sensör Ölçümü → Veri Karşılaştırma → Sınıflandırma → Çıktı
+```
 
-Ölçüm: Cihazın ucunu test etmek istediğiniz gıdaya yaklaştırın (doğrudan temas ettirmeyiniz).
+---
 
-Sonuç: Ekranda yazan durumu ve sesli uyarıyı takip edin.
+## 🔬 Sistem Bileşenleri
 
-📈 Gelecek Vizyonu
-Şimdilik mutfak ürünü olarak tasarlanan bu cihaz, ileride daha verimli sensörler ve küçültülmüş bir mimari ile her eve ve her mutfağa girebilecek taşınabilir bir el aletine dönüştürülecektir.
+### 📡 Sensörler
+- MQ-135 → Genel hava kalitesi ve gaz değişimleri
+- MQ-136 → Kükürt bileşikleri (bozulma göstergesi)
 
-Geliştiren: Barbaros Anadolu Lisesi Öğrencileri 🎓
-İletişim: [Okul İletişim Bilgileriniz veya Mail Adresiniz]
+### 🧩 Donanım
+- 16x2 LCD ekran (sonuç gösterimi)
+- Buzzer (sesli uyarı sistemi)
+- Kalibrasyon butonu
+
+---
+
+## ⚙️ Karar Mekanizması
+Sistem referans temiz hava değerine göre sapma hesaplar:
+
+- 🟢 Düşük sapma → **Taze**
+- 🟡 Orta sapma → **Riskli**
+- 🔴 Yüksek sapma → **Sakıncalı**
+
+---
+
+## 📷 Sistem Görseli
+
+> Aşağıdaki görseller proje mimarisi ve sensör yapısını temsil eder.
+
+![Architecture](assets/architecture.png)
+![Sensor Setup](assets/sensors.png)
+![Device Prototype](assets/device.png)
+
+---
+
+## 🚀 Kurulum (PlatformIO)
+
+```bash
+git clone https://github.com/kullaniciadi/RottenFlesh26.git
+cd RottenFlesh26
+pio run
+pio upload
+```
+
+---
+
+## ▶️ Kullanım
+1. Cihazı açın ve sensörlerin ısınmasını bekleyin
+2. Temiz ortamda kalibrasyon butonuna basın
+3. Sensörü gıdaya yaklaştırın (temas ettirmeyin)
+4. LCD ekrandan sonucu takip edin
+
+---
+
+## ⚠️ Sınırlamalar
+- Bu cihaz **tıbbi veya resmi gıda güvenliği cihazı değildir**
+- Sensörler sıcaklık ve nemden etkilenebilir
+- Sonuçlar yalnızca eğitim ve bilgilendirme amaçlıdır
+- %100 doğruluk garanti edilmez
+
+---
+
+## 🧭 Gelecek Geliştirmeler
+- Makine öğrenmesi tabanlı analiz
+- Daha hassas gaz sensörleri
+- Mobil uygulama entegrasyonu
+- Mini taşınabilir cihaz tasarımı
+
+---
+
+## 👨‍💻 Geliştirici
+Barbaros Anadolu Lisesi Öğrencileri
+
+---
+
+## 📬 İletişim
+E-posta: iletisim@example.com
+
+---
+
+## 📄 Lisans
+Bu proje eğitim amaçlıdır. Ticari kullanım için uygun değildir.
+
