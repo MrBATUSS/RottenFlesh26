@@ -96,9 +96,3 @@ Barbaros Anadolu Lisesi Öğrencileri Harezmi Projesi Ekibi (Bakınız CONTRIBUT
 
 ## 📬 İletişim
 E-posta: iletisim@example.com
-
----
-
-## 📄 Lisans
-![](assets/LICENSE)
-
